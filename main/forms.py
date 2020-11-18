@@ -1,5 +1,5 @@
 from .models import Task
-from django.forms import ModelForm, TextInput, Textarea, CheckboxInput
+from django.forms import ModelForm, TextInput, Textarea
 
 
 class TaskForm(ModelForm):
@@ -15,18 +15,5 @@ class TaskForm(ModelForm):
             "task": Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Input description'
-            }),
-        }
-
-
-class IsDoneTaskForm(ModelForm):
-    class Meta:
-        model = Task
-        fields = ["is_done"]
-        exclude = ["title", "task", "author"]
-        widgets = {
-            "is_done": CheckboxInput(attrs={
-                'onclick': 'make_line_through()',
-                'name': 'check',
             }),
         }

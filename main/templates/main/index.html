@@ -13,7 +13,7 @@
         {% for el in tasks %}
             <div class="alert alert-warning mt-2">
                 <h3>{{ el.title }}</h3>
-                <input name="check" type="checkbox" onclick="make_line_through()" onselect="{{ el.change_state }}"
+                <input name="check" type="checkbox" onclick="make_line_through()"
                        title="{{ el.title }}"/>
                 <p>{{ el.task }}</p>
             </div>

@@ -7,13 +7,17 @@
         {% for el in tasks %}
             <div class="alert alert-warning mt-2" id="container">
                 <h3>{{ el.title }}</h3>
-                <input name="check" type="checkbox" onclick="make_line_through(); {{ el.change_state }}"/>
+                <input id="{{ el.id }}" name="check" type="checkbox"
+                       onclick="window.location.href='{% url 'change_state' task_id=el.id %}'"/>
                 <p>{{ el.task }}</p>
             </div>
         {% endfor %}
         <button class="button btn-outline-dark" onclick="window.location.href = '{% url 'create' %}';">Add task</button>
     {% else %}
-        <p>You haven't created any tasks yet</p>
+        <p>You haven't created any tasks yet or already done everything</p>
         <a class="nav-link" href="{% url 'create' %}">Create task</a>
+    {% endif %}
+    {% if done_tasks %}
+
     {% endif %}
 {% endblock %}
